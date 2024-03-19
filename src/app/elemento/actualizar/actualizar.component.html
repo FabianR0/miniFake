@@ -1,0 +1,29 @@
+<h2>Actualizar</h2>
+<form [formGroup]="formulario" (ngSubmit)="editorUser()">
+  <div class="form-group">
+    <label for="lastName">Id</label>
+    <input id="1" type="text" class="form-control" formControlName="id"   required>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Titulo</label>
+    <input id="1" type="text" class="form-control" formControlName="title"   required>
+  </div>
+  <div class="form-group">
+    <label for="position">Descripcion</label>
+    <input id="2" type="text" class="form-control" formControlName="description"  required>
+  </div>
+  <!-- <div class="form-group">
+    <label for="position">Categoria</label>
+    <input id="2" type="text" class="form-control" formControlName="category"  required>
+  </div> -->
+  <div class="form-group">
+    <label for="position">Image</label>
+    <input id="2" type="text" class="form-control" formControlName="image"  required>
+  </div>
+  <div class="form-group">
+    <label for="position">Price</label>
+    <input id="2" type="text" class="form-control" formControlName="price"  required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>

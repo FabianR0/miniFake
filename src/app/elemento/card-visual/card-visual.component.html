@@ -1,0 +1,33 @@
+<h2>TExt</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titulo</th>
+      <th>Descripcion</th>
+      <!-- <th>Categoria</th> -->
+      <th>Imagen</th>
+      <th>Precio</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{ user.title }}</td>
+      <td>{{ user.description }}</td>
+      <!-- <td>{{ user.category.name }}</td> -->
+      <td>{{ user.images }}</td>
+      <td>{{ user.price }}</td>
+      <td>
+        <button (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+  <div style="display: flex; justify-content: space-around; background: yellow;" >
+    <app-actualizar></app-actualizar>
+    <app-editar></app-editar> 
+  </div>
+  
+</table>
+
