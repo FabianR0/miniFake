@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users" class="border-b hover:bg-gray-100">
+      <tr *ngFor="let user of users | paginate: { itemsPerPage: 10, currentPage: p }" class="border-b hover:bg-gray-100">
         <td class="px-4 py-2">{{user.id}}</td>
         <td class="px-4 py-2">{{ user.title }}</td>
         <td class="px-4 py-2">{{ user.description }}</td>
@@ -34,7 +34,7 @@
   </table>
 </div>
 
-<mat-paginator #paginator
+<!-- <mat-paginator #paginator
                class="demo-paginator"
                (page)="handlePageEvent($event)"
                [length]="length"
@@ -43,7 +43,8 @@
                [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
                [pageIndex]="pageIndex"
                aria-label="Select page">
-</mat-paginator>
+</mat-paginator> -->
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 <div class="flex justify-around mt-4">
   <app-actualizar *ngIf="body!= null" [body]="body"></app-actualizar>

@@ -11,25 +11,10 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
   styleUrls: ['./card-visual.component.css']
 })
 export class CardVisualComponent implements OnInit {
-  length = 50;
-  pageSize = 10;
-  pageIndex = 0;
-  pageSizeOptions = [5, 10, 25];
-
-
-  showPageSizeOptions = true;
-  showFirstLastButtons = true;
   
-  pageEvent!: PageEvent;
 
-  @ViewChild('paginator')
-  paginator!: MatPaginator;
-
-  handlePageEvent(event: PageEvent) {
-    this.pageIndex = event.pageIndex;
-    this.pageSize = event.pageSize;
-    this.getUsu(this.pageIndex, this.pageSize); // Update data based on new page/size
-  }
+  p: number = 1;
+  
   users: any;
   constructor(private conexionService: ConexionService) { }
 
@@ -53,17 +38,8 @@ export class CardVisualComponent implements OnInit {
       this.users.images.
       console.log(this.users)
     });
-    this.getUsu(this.pageIndex, this.pageSize);
-    
 }
-  getUsu(pageIndex: number, pageSize: number) {
-    this.conexionService.getUsu(pageIndex, pageSize)
-      .subscribe(data => {
-        this.users = data;
-        this.length = data.length; 
-      });
-  }
-
+ 
 public body : any = null ;
 
 fillCuerpo(producto: any) { // aqui tomamos y insertamos los valores a actualizar
@@ -78,12 +54,6 @@ fillCuerpo(producto: any) { // aqui tomamos y insertamos los valores a actualiza
       images: producto.images[0],
     };
   }, 50);
-}
-
-setPageSizeOptions(setPageSizeOptionsInput: string) {
-  if (setPageSizeOptionsInput) {
-    this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-  }
 }
 
   deleteUser(id: any) {

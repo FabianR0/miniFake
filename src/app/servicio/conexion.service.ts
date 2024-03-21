@@ -12,20 +12,15 @@ export class ConexionService {
 
   constructor(private http: HttpClient) { }
 
+  // getUsers() {
+  //   return this.http.get(`${this.apiUrl}?offset=30&limit=10`);
+  // }
   getUsers() {
-    return this.http.get(`${this.apiUrl}?offset=30&limit=10`);
+    return this.http.get(`${this.apiUrl}/`);
   }
   // getUsu(offset: number, limit: number): Observable<any> {
   //   return this.http.get(`${this.apiUrl}?offset=${offset}&limit=${limit}`);
   // }
-  getUsu(pageIndex: number, pageSize: number): Observable<any> {
-    const params = {
-      offset: pageIndex * pageSize,
-      limit: pageSize
-    };
-    return this.http.get(`${this.apiUrl}`, { params });
-  }
-
   getUser(id: any) {
     return this.http.get(`${this.apiUrl}/products/${id}`);
   }
