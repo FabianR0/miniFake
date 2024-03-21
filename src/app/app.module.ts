@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { EditarComponent } from './elemento/editar/editar.component';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ActualizarComponent } from './elemento/actualizar/actualizar.component';
+import { ConexionService } from './servicio/conexion.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { ActualizarComponent } from './elemento/actualizar/actualizar.component'
     AppRoutingModule,
     HttpClientModule, 
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
     // FormControl,
     // FormsModule
   ],

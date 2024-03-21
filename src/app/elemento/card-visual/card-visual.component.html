@@ -1,33 +1,52 @@
-<h2>TExt</h2>
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Titulo</th>
-      <th>Descripcion</th>
-      <!-- <th>Categoria</th> -->
-      <th>Imagen</th>
-      <th>Precio</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let user of users">
-      <td>{{user.id}}</td>
-      <td>{{ user.title }}</td>
-      <td>{{ user.description }}</td>
-      <!-- <td>{{ user.category.name }}</td> -->
-      <td>{{ user.images }}</td>
-      <td>{{ user.price }}</td>
-      <td>
-        <button (click)="deleteUser(user.id)">Delete</button>
-      </td>
-    </tr>
-  </tbody>
-  <div style="display: flex; justify-content: space-around; background: yellow;" >
-    <app-actualizar></app-actualizar>
-    <app-editar></app-editar> 
-  </div>
-  
-</table>
+<h2 class="text-2xl mb-4"> Texts ({{ users.length }} elementos)</h2>
+
+<div class="overflow-x-auto">
+  <table  class="table-auto w-full border-collapse">
+    <thead>
+      <tr>
+        <th class="px-4 py-2 bg-gray-200 text-left">ID</th>
+        <th class="px-4 py-2 bg-gray-200 text-left">Titulo</th>
+        <th class="px-4 py-2 bg-gray-200 text-left">Descripcion</th>
+        <!-- <th class="px-4 py-2 bg-gray-200 text-left">Categoria</th> -->
+        <th class="px-4 py-2 bg-gray-200 text-left">Imagen</th>
+        <th class="px-4 py-2 bg-gray-200 text-left">Precio</th>
+        <th class="px-4 py-2 bg-gray-200 text-left">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" class="border-b hover:bg-gray-100">
+        <td class="px-4 py-2">{{user.id}}</td>
+        <td class="px-4 py-2">{{ user.title }}</td>
+        <td class="px-4 py-2">{{ user.description }}</td>
+        <!-- <td class="px-4 py-2">{{ user.category.name }}</td> -->
+        <td class="px-4 py-2">
+          <img [src]="user.images" alt="Imagen" class="h-10 w-10 object-cover rounded-full">
+        </td>
+        <td class="px-4 py-2">{{ user.price }}</td>
+        <td class="px-4 py-2">
+          <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="deleteUser(user.id)">Eliminar</button>
+        </td>
+        <td class="px-4 py-2">
+          <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="fillCuerpo(user)">Editar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<mat-paginator #paginator
+               class="demo-paginator"
+               (page)="handlePageEvent($event)"
+               [length]="length"
+               [pageSize]="pageSize"
+               [showFirstLastButtons]="showFirstLastButtons"
+               [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+               [pageIndex]="pageIndex"
+               aria-label="Select page">
+</mat-paginator>
+
+<div class="flex justify-around mt-4">
+  <app-actualizar *ngIf="body!= null" [body]="body"></app-actualizar>
+  <app-editar></app-editar> 
+</div>
 
