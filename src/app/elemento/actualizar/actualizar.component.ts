@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ConexionService } from 'src/app/servicio/conexion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-actualizar',
@@ -35,7 +36,7 @@ export class ActualizarComponent {
     }
   } 
   public editorUser() { //put 
-    console.log('este es el formulario',this.formulario.value);
+    // console.log('este es el formulario',this.formulario.value);
     let body = {
       title : this.formulario.get('title')?.value,
       description : this.formulario.get('description')?.value,
@@ -43,10 +44,19 @@ export class ActualizarComponent {
       image : this.formulario.get('image')?.value,
       price : this.formulario.get('price')?.value
     }
-    console.log('este es el body',body);
+    // console.log('este es el body',body);
     let cont = this.formulario.get('id')?.value;
     this.conexionService.updateUser(cont,body).subscribe(data => {
-      console.log('la respuesta fue: ',data);
+      Swal.fire({ // aqui el diseño del alert
+        position: "top",
+        icon: "success",
+        title: "Tu datos han sido actualizado.",
+        showConfirmButton: false,
+        timer: 1000
+      }).then(() => {
+        window.location.reload(); // Recargar la página
+      });
+      // console.log('la respuesta fue: ',data);
     });
   }
 }

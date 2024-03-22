@@ -1,9 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConexionService } from 'src/app/servicio/conexion.service';
 import Swal from 'sweetalert2';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-
-
 
 @Component({
   selector: 'app-card-visual',
@@ -32,11 +29,10 @@ export class CardVisualComponent implements OnInit {
           try {
             item.images = JSON.parse(imagenNo);
           } catch (e) {
-            console.log("este : ",e);
+            console.log(e);
           }
         });
-      this.users.images.
-      console.log(this.users)
+      this.users.images.console.log(this.users)
     });
 }
  

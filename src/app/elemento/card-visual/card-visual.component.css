@@ -1,0 +1,11 @@
+:host{
+    background-color: #FAD881;
+    background-image: linear-gradient(147deg, #c3cbdc 1%, #edf1f4 74%);
+    display: block;
+}
+.sombra{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+.sombra-b{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}

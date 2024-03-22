@@ -1,29 +1,29 @@
 <div class="mx-auto max-w-md">
-  <h2 class="text-2xl mb-4">Añadir</h2>
+  <h2 class="text-4xl flex justify-center som">Añadir</h2>
 
-  <form [formGroup]="formulario" (ngSubmit)="saveUser()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-    <div style="display: flex; align-items: self-start;">
+  <form [formGroup]="formulario" (ngSubmit)="saveUser()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 transp">
+    <div style="display: flex; justify-content: space-evenly;"class="">
       <div>
         <div class="mb-4">
-          <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Titulo</label>
-          <input id="title" type="text" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="title" required>
+          <label for="title" class="block text-gray-700 text-sm font-bold mb-2 som">Titulo</label>
+          <input id="title" type="text" class="appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="title" required>
         </div>
         <div class="mb-4">
-          <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Descripción</label>
-          <input id="description" type="text" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="description" required>
+          <label for="description" class="block text-gray-700 text-sm font-bold mb-2 som">Descripción</label>
+          <input id="description" type="text" class="appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="description" required>
         </div>
       </div>
-      <div>
+      <div class="ml-1">
         <div class="mb-4">
-          <label for="image" class="block text-gray-700 text-sm font-bold mb-2">Imagen</label>
-          <input id="image" type="text" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="image" required>
+          <label for="image" class="block text-gray-700 text-sm font-bold mb-2 som">Imagen</label>
+          <input id="image" type="text" class="appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="image" required>
         </div>
         <div class="mb-4">
-          <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Precio</label>
-          <input id="price" type="number" class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="price" required>
+          <label for="price" class="block text-gray-700 text-sm font-bold mb-2 som">Precio</label>
+          <input id="price" type="number" class="appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" formControlName="price" required>
         </div>
     
-        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Guardar</button>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline som-b">Guardar</button>
       </div>
     </div>
   </form>

@@ -1,7 +1,7 @@
-<h2 class="text-2xl mb-4"> Texts ({{ users.length }} elementos)</h2>
+<div class="text-4xl flex justify-center my-4 sombra"> Api Fake Platzi</div>
 
 <div class="overflow-x-auto">
-  <table  class="table-auto w-full border-collapse">
+  <table  class="table-auto w-full border-collapse sombra" >
     <thead>
       <tr>
         <th class="px-4 py-2 bg-gray-200 text-left">ID</th>
@@ -10,7 +10,8 @@
         <!-- <th class="px-4 py-2 bg-gray-200 text-left">Categoria</th> -->
         <th class="px-4 py-2 bg-gray-200 text-left">Imagen</th>
         <th class="px-4 py-2 bg-gray-200 text-left">Precio</th>
-        <th class="px-4 py-2 bg-gray-200 text-left">Acciones</th>
+        <th class="px-4 py-2 bg-gray-200 text-right">Acciones</th>
+        <th class="px-4 py-2 bg-gray-200 text-left"></th>
       </tr>
     </thead>
     <tbody>
@@ -24,30 +25,27 @@
         </td>
         <td class="px-4 py-2">{{ user.price }}</td>
         <td class="px-4 py-2">
-          <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="deleteUser(user.id)">Eliminar</button>
+          <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded sombra sombra-b" (click)="deleteUser(user.id)">Eliminar</button>
         </td>
         <td class="px-4 py-2">
-          <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" (click)="fillCuerpo(user)">Editar</button>
+          <button class="bg-slate-500 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded sombra sombra-b" (click)="fillCuerpo(user)">Editar</button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-
-<!-- <mat-paginator #paginator
-               class="demo-paginator"
-               (page)="handlePageEvent($event)"
-               [length]="length"
-               [pageSize]="pageSize"
-               [showFirstLastButtons]="showFirstLastButtons"
-               [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
-               [pageIndex]="pageIndex"
-               aria-label="Select page">
-</mat-paginator> -->
-<pagination-controls (pageChange)="p = $event"></pagination-controls>
+<div class="flex justify-around text-xl sombra">
+  <pagination-controls (pageChange)="p = $event" 
+                       previousLabel="Anterior"
+                       nextLabel="Siguiente" 
+                       screenReaderPageLabel="page"
+                       class="flex justify-center my-4 pt-4"
+  ></pagination-controls>
+  <br>
+  (ID: {{ users.length }} elements)
+</div>
 
 <div class="flex justify-around mt-4">
   <app-actualizar *ngIf="body!= null" [body]="body"></app-actualizar>
   <app-editar></app-editar> 
 </div>
-
