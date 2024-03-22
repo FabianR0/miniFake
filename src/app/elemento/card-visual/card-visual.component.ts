@@ -15,6 +15,15 @@ export class CardVisualComponent implements OnInit {
   users: any;
   constructor(private conexionService: ConexionService) { }
 
+  twoToElement(user: any ): void {
+
+    this.fillCuerpo(user);
+
+    const element = document.getElementById('dir');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+    }
+  }
   ngOnInit() {
     this.conexionService.getUsers().subscribe(data => {
       this.users = data;
@@ -32,7 +41,7 @@ export class CardVisualComponent implements OnInit {
             console.log(e);
           }
         });
-      this.users.images.console.log(this.users)
+      this.users.images.console.log(this.users);
     });
 }
  
@@ -57,8 +66,8 @@ fillCuerpo(producto: any) { // aqui tomamos y insertamos los valores a actualiza
     //   console.log('El producto se eliminó correctamente');
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: "btn btn-success",                  // el resto el diseño del alert
-        cancelButton: "btn btn-danger"
+        confirmButton: "bg-red-500 rounded font-bold py-2 px-4 text-white ml-2",                  // el resto el diseño del alert
+        cancelButton: "bg-lime-600 rounded font-bold py-2 px-4 text-white"
       },
       buttonsStyling: false
     });

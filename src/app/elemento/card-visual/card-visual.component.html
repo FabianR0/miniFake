@@ -28,7 +28,7 @@
           <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded sombra sombra-b" (click)="deleteUser(user.id)">Eliminar</button>
         </td>
         <td class="px-4 py-2">
-          <button class="bg-slate-500 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded sombra sombra-b" (click)="fillCuerpo(user)">Editar</button>
+          <button href="#dir" class="bg-slate-500 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded sombra sombra-b" (click)="twoToElement(user) ">Editar</button>
         </td>
       </tr>
     </tbody>
@@ -46,6 +46,6 @@
 </div>
 
 <div class="flex justify-around mt-4">
-  <app-actualizar *ngIf="body!= null" [body]="body"></app-actualizar>
+  <app-actualizar id="dir" *ngIf="body!= null" [body]="body"></app-actualizar>
   <app-editar></app-editar> 
 </div>
