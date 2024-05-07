@@ -12,7 +12,7 @@ import { ActualizarComponent } from './elemento/actualizar/actualizar.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatPaginatorModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatTabsModule
     // FormControl,
     // FormsModule
   ],

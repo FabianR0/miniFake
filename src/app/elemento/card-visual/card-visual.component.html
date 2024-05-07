@@ -1,4 +1,6 @@
-<div class="text-4xl flex justify-center my-4 sombra"> Api Fake Platzi</div>
+<mat-tab-group>
+  <mat-tab label="Base de Datos"> 
+    <div class="text-4xl flex justify-center my-4 sombra"> Api Express</div>
 
 <div class="overflow-x-auto">
   <table  class="table-auto w-full border-collapse sombra" >
@@ -21,14 +23,15 @@
         <td class="px-4 py-2">{{ user.description }}</td>
         <!-- <td class="px-4 py-2">{{ user.category.name }}</td> -->
         <td class="px-4 py-2">
-          <img [src]="user.images" alt="Imagen" class="h-10 w-10 object-cover rounded-full">
+          <img [src]="user.images" alt="Imagen" class="h-15 w-10 object-cover rounded">
         </td>
         <td class="px-4 py-2">{{ user.price }}</td>
         <td class="px-4 py-2">
           <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded sombra sombra-b" (click)="deleteUser(user.id)">Eliminar</button>
         </td>
         <td class="px-4 py-2">
-          <button href="#dir" class="bg-slate-500 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded sombra sombra-b" (click)="twoToElement(user) ">Editar</button>
+          <button (click)="twoToElement(user)" href="#dir" class="bg-slate-500 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded sombra sombra-b" >Editar</button> 
+          <!--   -->
         </td>
       </tr>
     </tbody>
@@ -42,10 +45,13 @@
                        class="flex justify-center my-4 pt-4"
   ></pagination-controls>
   <br>
-  (ID: {{ users.length }} elements)
+  (ID: {{ users?.length }} elements)
 </div>
-
-<div class="flex justify-around mt-4">
-  <app-actualizar id="dir" *ngIf="body!= null" [body]="body"></app-actualizar>
-  <app-editar></app-editar> 
-</div>
+  </mat-tab>
+  <mat-tab label="Informacion"  id="dir">
+    <div class="flex justify-around mt-4">
+      <app-actualizar *ngIf="body!= null" [body]="body"></app-actualizar>
+      <app-editar></app-editar> 
+    </div>
+  </mat-tab>
+</mat-tab-group>
